@@ -35,6 +35,13 @@ def expo(adjust: float):
 def weibull(adjust: float):
     return roll(random.weibullvariate(0.5, 1.5 + adjust / 2))
 
+def powerroll(adjust: float):
+    hit = random.choice((True, False, False, False, False))
+    x = random.expovariate(1 + adjust / 5)
+    if hit:
+        x = 10 - x
+    return round(max(0, min(10, x)))
+
 
 frames = round(random.uniform(120, 150))
 distributions = [lognormal, normal, uniform, triangular, beta, expo, weibull]
@@ -68,12 +75,20 @@ for p in participants:
     adjustment = random.uniform(0, 1)
     series = []
     for _ in range(frames):
-        frame_score = distribution(adjustment)
-        first_score = min(frame_score, distribution(adjustment))
-        second_score = frame_score - first_score
-        series.append(first_score)
-        if first_score < 10:
-            series.append(second_score)
+        if p == "Mule Skon":
+            first_score = powerroll(adjustment)
+            remaining = 10 - first_score
+            second_score = round(powerroll(adjustment) * remaining / 10)
+            series.append(first_score)
+            if first_score < 10:
+                series.append(second_score)
+        else:
+            frame_score = distribution(adjustment)
+            first_score = min(frame_score, distribution(adjustment))
+            second_score = frame_score - first_score
+            series.append(first_score)
+            if first_score < 10:
+                series.append(second_score)
     scorecard.append((p, series))
 
 for name, series in scorecard:
