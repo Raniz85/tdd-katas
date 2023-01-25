@@ -1,0 +1,63 @@
+passphrase="Kicko Swan Sju990"
+<div class="assignment-section" id="part2">
+    <p>
+        Correct!
+        Unfortunately,
+        this didn't mean that Mule won this time either,
+        but Kicko Swan Sju won with a total score of 990, very impressive!
+    </p>
+    <p>
+        Anticipating a call from your manager,
+        you find it hard to get started on anything else.
+        Instead, in preparation of the next rule change you look through your CEO's series and plot the histogram of his
+        rolls.
+    </p>
+    <p>
+        Discussing with your manager you decide to alter the rules a bit for the next bowling series:
+    </p>
+    <ul class="list-disc list-inside mb-2">
+        <li>If all ten pins are downed on the first roll it is deemed a strike and grants 10 points</li>
+        <li>If all ten pins are downed by the second roll it is deemed a spare and grants 5 points</li>
+    </ul>
+    <p>
+        With these new rules, let's return to the example and calculate new scores:
+    </p>
+    <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
+Yattas Del Lana 3 5 3 5 7 2 3 0 10 4 3
+Eve Stojbs 3 7 3 3 9 1 6 4 2 3 1 0</pre>
+    <p>
+        Dividing this up in frames we get:
+    </p>
+    <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
+Yattas Del Lana | 3 5 | 3 5 | 7 2 | 3 0 | 10  | 4 3
+Eve Stojbs      | 3 7 | 3 3 | 9 1 | 6 4 | 2 3 | 1 0</pre>
+    <p>
+        Summing up the scores according to the new rules you arrive at:
+    </p>
+    <ul class="list-disc list-inside mb-2">
+        <li>Yattas Delana: 3 + 5 + 3 + 5 + 7 + 2 + 3 + 0 + 10 + 10 (Strike) + 4 + 3 = 55
+        <li>Eve Stojbs: 3 + 7 + 5 (Spare) + 3 + 3 + 9 + 1 + 5 (Spare) + 6 + 4 + 5 (Spare) + 2 + 3 + 1 + 0 = 57
+    </ul>
+    <p>
+        And according to these rules Eve Stojbs is the winner with 57 points.
+    </p>
+    <p>
+        Satisfied with the rule changes you go back to your other duties.
+        It does't take long for the next scorecard to arrive though
+        - apparently your CEO called up everyone else and strongarmed them into another round of bowling as soon as he got
+        your rule changes.
+    </p>
+    <p>
+    <p>
+        Given the scores in the new <a href="series02.txt" target="_new">series</a>,
+        calculate the winner and their final score.
+    </p>
+    <form id="part2_answer"
+          action='javascript:attempt_answer("part3.html.json", "part2_answer", "parts")'>
+        <label for="part2_winner_input">Winner</label>
+        <input id="part2_winner_input" type="text"/>
+        <label for="part2_score_input">Score</label>
+        <input id="part2_score_input" type="number"/>
+        <button>Submit</button>
+    </form>
+</div>
