@@ -46,7 +46,7 @@ async function decrypt(blob: Crypto, passphrase: string): Promise<string> {
 }
 
 async function loadAndDecrypt(file: string, passphrase: string, target: HTMLElement) {
-    const response = await fetch(`/${file}`);
+    const response = await fetch(`${file}`);
     const data = await response.json();
     const content = await decrypt(data, passphrase);
     const node = document.createRange().createContextualFragment(content);
