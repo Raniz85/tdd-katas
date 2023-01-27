@@ -62,7 +62,7 @@ participants = [
     "Ray Rambar",  # Mary Barra
     "Scharon Slog",  # Carlos Ghosn
     "Scuid Piranha",  # Sundar Pichai
-    "Yattas Del Lana",  # Satya Nadella
+    "Yatas Del Lana",  # Satya Nadella
     "Yoni Inroad",  # Indra Nooyi
     "Zerkk MacBurger",  # Mark Zuckerberg
     "Zoe Bjeffs",  # Jeff Bezos
