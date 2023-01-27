@@ -3,4 +3,18 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# Generated, encrypted parts files
 public/*.html.json
+
+# IDEA
+.idea
+
+# Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
