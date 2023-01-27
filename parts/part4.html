@@ -5,38 +5,12 @@ passphrase="Zoe Bjeffs1046"
         Impressive, but your strategy seems to have failed this time too.
         It seems impossible to make your CEO win.
     </p>
-    <p>
-        It seems this didn't work either
-        you find it hard to get started on anything else.
-        Instead, in preparation of the next rule change you look through your CEO's series and plot the histogram of his
-        rolls.
-    </p>
-    <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2"> 0 |============================================
- 1 |===========================
- 2 |============
- 3 |==
- 4 |==
- 5 |
- 6 |=
- 7 |=
- 8 |===
- 9 |=======
-10 |======</pre>
-    <p>
-        Looking at the data, it seems that your CEO bowls by throwing the heaviest ball he can find as hard as possible.
-        A strategy that seems to produce a lot of misses, but also a fair number of strikes.
-    </p>
-    <p>
-        When your manager comes over (no call this time) you quickly explain the situation and you both sit down to
-        discuss potential rule changes that will favour this bowling style.
-        Deciding that you need to <i>really</i> reward strikes and spares you decide on the following additions to the rules:
-    </p>
     <ul class="list-disc list-inside mb-2">
-        <li>For each strike made the bonus score of a strike increases by 2</li>
-        <li>For each spare made the bonus score of a spare increases by 1</li>
+        <li>Each strike rewards the next two rolls as bonus points.</li>
+        <li>Each spare rewards the next roll as bonus points.</li>
     </ul>
     <p>
-        With these new rules, let's return to the example and calculate new scores:
+        Let's see what happens when we apply these rules to the example series
     </p>
     <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
 Yattas Del Lana | 3 5 | 3 5 | 7 2 | 3 0 | 10  | 4 3
@@ -45,26 +19,25 @@ Eve Stojbs      | 3 7 | 3 3 | 9 1 | 6 4 | 2 3 | 1 0</pre>
         Summing up the scores according to the new rules you arrive at:
     </p>
     <ul class="list-disc list-inside mb-2">
-        <li>Yattas Delana: 3 + 5 + 3 + 5 + 7 + 2 + 3 + 0 + 10 + 10 (Strike) + 4 + 3 = 55
-        <li>Eve Stojbs: 3 + 7 + 5 (Spare) + 3 + 3 + 9 + 1 + 6 (Spare) + 6 + 4 + 7 (Spare) + 2 + 3 + 1 + 0 = 60
+        <li>Yattas Delana: 3 + 5 + 3 + 5 + 7 + 2 + 3 + 0 + 10 + (4 + 3) (Strike) + 4 + 3 = 52
+        <li>Eve Stojbs: 3 + 7 + 3 (Spare) + 3 + 3 + 9 + 1 + 6 (Spare) + 6 + 4 + 2 (Spare) + 2 + 3 + 1 + 0 = 53
     </ul>
     <p>
-        And according to these rules Eve Stojbs is again the winner, but with 60 points this time.
+        And according to these rules Eve Stojbs wins with 53 points.
     </p>
     <p>
-        This time, surely Mule must win.
+        You send your email with the proposed rule changes and hope for the best.
     </p>
     <p>
-    <p>
-        Given the scores in the new <a href="series03.txt" target="_new">series</a>,
-        calculate the winner and their final score.
+        Given the scores in the new <a href="series04.txt" target="_new">series</a>,
+        calculate the winner and their score.
     </p>
-    <form id="part3_answer"
-          action='javascript:attemptAnswer("part4.html.json", "part3_answer", "parts")'>
-        <label for="part3_winner_input">Winner</label>
-        <input id="part3_winner_input" type="text"/>
-        <label for="part3_score_input">Score</label>
-        <input id="part3_score_input" type="number"/>
+    <form id="part4_answer"
+          action='javascript:attemptAnswer("part5.html.json", "part4_answer", "parts")'>
+        <label for="part4_winner_input">Winner</label>
+        <input id="part4_winner_input" type="text"/>
+        <label for="part4_score_input">Score</label>
+        <input id="part4_score_input" type="number"/>
         <button>Submit</button>
     </form>
 </div>
