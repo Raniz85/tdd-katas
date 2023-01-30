@@ -25,23 +25,31 @@ interface Crypto {
     hash: string,
     ciphertext: string,
 }
+
+class InvalidKeyError extends Error {}
+
 async function decrypt(blob: Crypto, passphrase: string): Promise<string> {
   const key = await getKey(passphrase);
   console.log(`Key: ${base64.stringify(new Uint8Array(key))}`)
   const cryptoKey = await crypto.subtle.importKey('raw', key, { name: 'AES-CBC' }, false, ['encrypt', 'decrypt']);
   const { ciphertext, hash }  = blob;
   const ciphertextRaw = base64.parse(ciphertext);
-  const plaintext = await crypto.subtle.decrypt({
+  let plaintext;
+  try {
+    plaintext = await crypto.subtle.decrypt({
       name: "AES-CBC",
       iv: key,
-  }, cryptoKey, ciphertextRaw);
+    }, cryptoKey, ciphertextRaw);
+  } catch (OperationError) {
+      throw new InvalidKeyError();
+  }
   const decryptedHash = buf2hex(await crypto.subtle.digest("SHA-256", plaintext));
   console.log(new TextDecoder().decode(plaintext))
   console.log(`Hash: ${decryptedHash}`)
   if (decryptedHash === hash) {
       return new TextDecoder().decode(plaintext);
   } else {
-      throw new Error("Invalid passphrase");
+      throw new InvalidKeyError();
   }
 }
 
@@ -70,9 +78,18 @@ export async function attemptAnswer(file: string, form: string, target: string) 
         .then(() => {
             formNode.hidden = true;
         })
-        .catch(() => {
-            const div = document.createElement("div");
-            div.setAttribute("class", "wrong-answer");
-            div.appendChild(document.createTextNode("That is not the correct answer"));
+        .catch((error) => {
+            const errorModal = assertElement("error");
+            const errorTitleContainer = assertElement("error-title");
+            const errorTextContainer = assertElement("error-text");
+            let errorTitle = "Error"
+            let errorText = error.toString();
+            if (error instanceof InvalidKeyError) {
+                errorTitle = "Invalid answer";
+                errorText = "That is not the correct answer. Check your implementation and try again.";
+            }
+            errorTitleContainer.textContent = errorTitle;
+            errorTextContainer.textContent = errorText;
+            errorModal.style.display = "block";
         })
 }
