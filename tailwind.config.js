@@ -1,9 +1,11 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   mode: 'jit',
   purge: {
     enabled: process.env.NODE_ENV === 'production',
     safeList: [],
-    content: ['./index.html', './src/**/*.tsx', './src/**/*.ts'],
+    content: ['**/*.html', './src/**/*.tsx', './src/**/*.ts'],
   },
   theme: {
     colors: {
@@ -24,5 +26,14 @@ module.exports = {
       cyan: "#2aa198",
       green: "#859900",
     }
-  }
+  },
+  plugins: [
+    plugin(function({ addBase, theme }) {
+      addBase({
+        'h1': { fontSize: theme('fontSize.2xl'), marginTop: "1rem", },
+        'h2': { fontSize: theme('fontSize.xl'), marginTop: "1rem", },
+        'h3': { fontSize: theme('fontSize.lg'), marginTop: "1rem", },
+      })
+    })
+  ]
 };

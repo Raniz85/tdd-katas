@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import base64
+import glob
 import os
 import re
 import json
@@ -48,16 +49,24 @@ def encrypt_html(source: str) -> Dict[str, str]:
     match = PASSPHRASE_REGEX.match(first)
     if not match:
         raise ValueError(
-            f"Invalid first line '{first}' must be on the form '<div passphrase=\"...\">"
+            f"Invalid first line '{first}' must be on the form 'passphrase=\"...\""
         )
     passphrase = match.group("passphrase")
     plaintext = "\n".join(lines[1:])
     return encrypt(passphrase, plaintext)
 
 
+PATH_REGEX = re.compile(r"(?P<kata>.+)/parts/(?P<part>.+)$")
+
+
 def encrypt_file(path: str):
-    filename = os.path.basename(path)
-    destination = os.path.join("public", filename + ".json")
+    match = PATH_REGEX.match(path)
+    if not match:
+        return
+    kata = match.group("kata")
+    part = match.group("part")
+    destination = os.path.join("public", kata, part + ".json")
+    os.makedirs(os.path.dirname(destination), exist_ok=True)
     print(f"Encrypting {path} and storing into {destination}")
     with open(path, "r") as f:
         html = f.read()
@@ -67,6 +76,5 @@ def encrypt_file(path: str):
 
 
 if __name__ == "__main__":
-    for filename in os.listdir("parts"):
-        path = os.path.join("parts", filename)
-        encrypt_file(path)
+    for filename in glob.glob("**/parts/**"):
+        encrypt_file(filename)

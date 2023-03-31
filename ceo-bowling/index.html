@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- CC-BY-3.0 https://game-icons.net/1x1/delapouite/bowling-strike.html -->
+    <link rel="icon" type="image/svg+xml" href="../src/favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CEO Bowling Kata</title>
+</head>
+<body>
+<div class="fixed inset-0 bg-base03 bg-opacity-50 overflow-y-auto h-full w-full" id="greeting">
+    <div class="max-w-4xl">
+        <div class="max-w-2xl relative bg-base3 text-base00 bg-opacity-100 mt-20 p-5 mx-auto border shadow-lg rounded-md" >
+            <div class="mt-3">
+                <h1 class="text-xl font-medium mb-5">The CEO Bowling Kata</h1>
+                <p>
+                    Hello and welcome to this programming kata.
+                </p>
+                <p>
+                    This kata consists of several parts where you have to solve one part before the next is revealed,
+                    kinda like some sort of advent calendar that you might have heard of.
+                </p>
+                <p>
+                    While you <i>could</i> speed through this kata by just solving the problems as quickly as possible,
+                    the intention of this kata is to practice Test Driven Development and as such you're recommended
+                    to think about this as production code and write proper tests for your implementation.
+                </p>
+                <p>
+                    Where appropriate, an example will be shown to better explain the problem.
+                    These examples are perfect for an initial test case.
+                    I do recommend that you write more tests than just based on the example though,
+                    the aim, after all, is to drive development by passing tests.
+                </p>
+                <p>
+                    Good luck!<br/>
+                    /Raniz
+                </p>
+                <div class="text-center">
+                    <button class="bg-green px-4 text-base3 rounded-full" onclick="document.getElementById('greeting').style.display = 'none'">Let's Go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fixed inset-0 bg-base03 bg-opacity-50 overflow-y-auto h-full w-full" style="display: none" id="error">
+    <div class="max-w-4xl">
+        <div class="max-w-2xl relative bg-base3 text-red bg-opacity-100 mt-20 p-5 mx-auto border shadow-lg rounded-md" >
+            <div class="mt-3">
+                <h1 class="text-xl font-medium mb-5" id="error-title">Error</h1>
+                <p id="error-text">
+                </p>
+                <div class="text-center">
+                    <button class="bg-cyan px-4 text-base3 rounded-full" onclick="document.getElementById('error').style.display = 'none'">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="assignment" id="parts">
+    <div class="assignment-section" id="part1">
+        <p>
+            Once upon a time, in a boardroom far, far away, a group of bored CEOs decided to play a game of bowling.
+            Being high-school dropouts with limited understanding of maths,
+            they couldn't grok the scoring rules of regular bowling and decided on a simplified version instead.
+        </p>
+        <p>
+            As the latest hire you're tasked with calculating the scores for the latest meeting.
+            The rules for CEO bowling is very simple:
+        </p>
+        <ul class="list-disc list-inside mb-2">
+            <li>Players take turns rolling a ball and trying to down all ten pins in what is called a <i>frame</i>.
+                If they don't down all ten pins on the first roll they get to roll the ball one more time at the
+                remaining pins before passing the turn to the next player.</li>
+            <li>The score for a frame is the total number of pins knocked down in that frame.</li>
+            <li>There is no limit on the number of frames in a game of CEO-bowling; the game continues until the CEOs
+                are
+                bored and decide on doing something else.
+            </li>
+        </ul>
+        <p>
+            The input to your assignment is a file where each row consists of the name of the CEO and a series of
+            numbers
+            representing all their rolls. Your assignment is to figure out who won and how many points they scored.
+        </p>
+        <p>
+            To ease your implementation, the CEOs have provided an old scorecard for a short game played years ago.
+            <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
+Yatas Del Lana 3 5 3 5 7 2 3 0 10 4 3
+Eve Stojbs 3 7 3 3 9 1 6 4 2 3 1 0</pre>
+            Summing up the scores you arrive at:
+        </p>
+        <ul class="list-disc list-inside mb-2">
+            <li>Yatas Del Lana: 3 + 5 + 3 + 5 + 7 + 2 + 3 + 0 + 10 + 4 + 3 = 45
+            <li>Eve Stojbs: 3 + 7 + 3 + 3 + 9 + 1 + 6 + 4 + 2 + 3 + 1 + 0 = 42
+        </ul>
+        <p>
+            And can declare Yatas Del Lana the winner with 45 points.
+        </p>
+        <p>
+            Given the scores in the provided <a href="series01.txt" target="_new">series</a>,
+            calculate the winner and their final score.
+        </p>
+        <form id="part1_answer"
+              action='javascript:attemptAnswer("ceo-bowling/part2.html.json", "part1_answer", "parts")'>
+            <label for="part1_winner_input">Winner</label>
+            <input id="part1_winner_input" type="text"/>
+            <label for="part1_score_input">Score</label>
+            <input id="part1_score_input" type="number"/>
+            <button>Submit</button>
+        </form>
+    </div>
+    <div class="assignment-section">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+      </a>
+      This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    </div>
+</div>
+<script type="module">
+    import {attemptAnswer} from "../src/main";
+    window.attemptAnswer = attemptAnswer;
+</script>
+</body>
+</html>
