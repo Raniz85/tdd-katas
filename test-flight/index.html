@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- CC-BY-3.0 https://game-icons.net/1x1/delapouite/bowling-strike.html -->
+    <link rel="icon" type="image/svg+xml" href="../src/favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Test Flight Kata</title>
+</head>
+<body>
+<!--
+<div class="fixed inset-0 bg-base03 bg-opacity-50 overflow-y-auto h-full w-full" id="greeting">
+    <div class="max-w-4xl">
+        <div class="max-w-2xl relative bg-base3 text-base00 bg-opacity-100 mt-20 p-5 mx-auto border shadow-lg rounded-md" >
+            <div class="mt-3">
+                <h1 class="text-xl font-medium mb-5">The Test Flight Kata</h1>
+                <p>
+                    Hello and welcome to this programming kata.
+                </p>
+                <p>
+                    This kata consists of several parts where you have to solve one part before the next is revealed,
+                    kinda like some sort of advent calendar that you might have heard of.
+                </p>
+                <p>
+                    While you <i>could</i> speed through this kata by just solving the problems as quickly as possible,
+                    the intention of this kata is to practice Test Driven Development and as such you're recommended
+                    to think about this as production code and write proper tests for your implementation.
+                </p>
+                <p>
+                    Where appropriate, an example will be shown to better explain the problem.
+                    These examples are perfect for an initial test case.
+                    I do recommend that you write more tests than just based on the example though,
+                    the aim, after all, is to drive development by passing tests.
+                </p>
+                <p>
+                    Good luck!<br/>
+                    /Raniz
+                </p>
+                <div class="text-center">
+                    <button class="bg-green px-4 text-base3 rounded-full" onclick="document.getElementById('greeting').style.display = 'none'">Let's Go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<div class="fixed inset-0 bg-base03 bg-opacity-50 overflow-y-auto h-full w-full" style="display: none" id="error">
+    <div class="max-w-4xl">
+        <div class="max-w-2xl relative bg-base3 text-red bg-opacity-100 mt-20 p-5 mx-auto border shadow-lg rounded-md" >
+            <div class="mt-3">
+                <h1 class="text-xl font-medium mb-5" id="error-title">Error</h1>
+                <p id="error-text">
+                </p>
+                <div class="text-center">
+                    <button class="bg-cyan px-4 text-base3 rounded-full" onclick="document.getElementById('error').style.display = 'none'">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="assignment" id="parts">
+    <div class="assignment-section" id="part1">
+        <p>
+            <em>Beep, beep, beep.</em>
+        </p>
+        <p>
+            The autopilot on the StarCruiser X MK. 1b - the latest prototype luxury space yacht you're testing -
+            is requesting your attention. You grudgingly get out of the hot-tub, put on your clothes and walk to the
+            bridge to check out whatever is up with the autopilot.
+        </p>
+        <p>
+            When you arrive at the helm you see red screens <em>everywhere</em>. Thinking that it might be a good idea
+            to sound more than a few beeps if the entire cockpit is lit up in red you walk over to the closest display
+            to see what's wrong.
+        </p>
+        <div class="flight-console text-base3 font-mono bg-red mx-auto">
+            <line>                 <span class="underline">ALERT!</span></line>
+            <line>           FATAL SYSTEM CRASH</line>
+            <line> ENTER EMERGENCY UNLOCK CODE TO REBOOT</line>
+            <line> </line>
+            <line>Seed:</line>
+            <line>  TWIJSSGPIEESEDZTZBZTDRPWIEDJDVEEZWHB</line>
+            <line>  HEMIPMWHJBHWHJIZGDDEHJPHIRVVJJVTREWZ</line>
+            <line>  UDERITWRIRPRHHPUHJZIRRPTMIGTRPJHBIEE</line>
+            <line>  VVHREWBREBJIRZPGZWHIZTTTGPDTHDHRPEBZ</line>
+            <line>Input:<span class="animation-blink">█</span></line>
+        </div>
+        <p>
+            Ah, the security requirements from the Terran Space Aviation Comission specify that all critical systems
+            must use generated codes for system maintenance. Remembering that the manufacturer mentioned something about
+            a code-generating device you walk back to the hot-tub and start looking through your stuff.
+        </p>
+        <p>
+            After looking through all your bags and still not finding anything even remotely looking like a
+            code-generating device you start rummaging around the hot tub and when you lift the coaster to look beneath
+            it you see a small display on the underside.
+        </p>
+        <p>
+        <span class="rounded-sm font-mono bg-base03 text-base3">
+            P|*|E|A|%|E|^|S|)|&|N| |S|7|E|D
+        </span>
+        </p>
+        <p>
+            Oups. It seems the "coaster" was the code-generator, and it doesn't seem to have appreciated the
+            lunar ale you spilled on it.
+        </p>
+        <p>
+            Back to the cockpit it is. You take the manual from the bookshelf and quickly find the page that documents
+            the code generation routine.
+        </p>
+        <div class="quote">
+            <h1 class="mt-0 mb-2">Emergency Code Generation</h1>
+            <p>
+                Your CipherSynth 3000 contains everything that is needed to generate emergency codes. Please
+                use the CipherSynth 3000 to generate emergency codes.
+            </p>
+            <p>
+                The algorithm for generating the emergency codes is a standard Marvin TPA reduction algorithm.
+                A brief explanation follows:
+            </p>
+            <h3>Marvin TPA Algorithm</h3>
+                <ol class="ml-5 mt-2 list-decimal">
+                    <li>Divide the seed up into groups of 16 characters. If the last group is not of 16 characters,
+                        append the alphabet until it is.</li>
+                    <li>
+                        For each group:
+                        <ol class="ml-5 list-char">
+                            <li>Reverse the order of characters in the group</li>
+                            <li>Replace every consonant with the character that comes 13 positions after alphabetically, wrapping around to the start of the alphabet.</li>
+                            <li>Iteratively from the second character, swap every vowel with the character in the position before it.</li>
+                            <li>Replace each character with its numerical position in the alphabet.</li>
+                        </ol>
+                    </li>
+                    <li>To combine the groups into the final code:
+                        <ol class="ml-5 list-char">
+                            <li>Position by position, add all numbers at that position from all the groups together.</li>
+                            <li>Position by position, mod 26 all positions.</li>
+                            <li>Replace each number by the character at that 1-based position in the alphabet.</li>
+                        </ol>
+                    </li>
+                </ol>
+            <h3>Example</h3>
+            <p class="mt-2">
+                For further explanation here is a sample for reducing the seed <span class="inline-code">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>:
+            </p>
+                <ol class="ml-5 list-decimal">
+                    <li>
+                        The seed divides into the groups: <span class="inline-code">ABCDEFGHIJKLMNOP</span> and <span class="inline-code">QRSTUVWXYZ</span>.
+                        Since the last group isn't 16 characters long it is padded to: <span class="inline-code">QRSTUVWXYZABCDEF</span>
+                    </li>
+                    <li>
+                        Apply the transformations to each group, resulting in the new groups:
+                        <ul class="ml-5 list-disc">
+                            <li>
+                                Group 1:
+                                <ol class="ml-5 list-char">
+                                    <li><span class="inline-code">PONMLKJIHGFEDCBA</span></li>
+                                    <li><span class="inline-code">COAZYXWIUTSEQPOA</span></li>
+                                    <li><span class="inline-code">OACYZXIUWTESQOAP</span></li>
+                                    <li><span class="inline-code">15  1  3 25 26 24  9 21 23 20  5 19 17 15  1 16</span></li>
+                                </ol>
+                            </li>
+                            <li>
+                                Group 2:
+                                <ol class="ml-5 list-char">
+                                    <li><span class="inline-code">FEDCBAZYXWVUTSRQ</span></li>
+                                    <li><span class="inline-code">SEQPOAMYKJIUGFED</span></li>
+                                    <li><span class="inline-code">ESQOAPYMKIUJGEFD</span></li>
+                                    <li><span class="inline-code"> 5 19 17 15  1 16 25 13 11  9 21 10  7  5  6  4</span></li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Position-wise addition, modulus and substitution yields:
+                        <ol class="ml-5 list-char">
+                            <li><span class="inline-code">20 20 20 40 27 40 34 34 34 29 26 29 24 20 7 20</span></li>
+                            <li><span class="inline-code">20 20 20 14  1 14  8  8  8  3 26  3 24 20 7 20</span></li>
+                            <li><span class="inline-code">TTTNANHHHCZCXTGT</span></li>
+                        </ol>
+                    </li>
+                </ol>
+        </div>
+        <p>
+            Calculate the emergency reboot code with the seed from the console.
+        </p>
+        <form id="part1_answer"
+              action='javascript:attemptAnswer("part2.html.json", "part1_answer", "parts")'>
+            <label for="part1_code_input">Input</label>
+            <input id="part1_code_input" type="text" size="32"/>
+            <button>Submit</button>
+        </form>
+    </div>
+</div>
+<div class="assignment">
+    <div class="assignment-section">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+            <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+        </a>
+        This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    </div>
+</div>
+<script type="module">
+    import {attemptAnswer} from "../src/main";
+    window.attemptAnswer = attemptAnswer;
+</script>
+</body>
+</html>

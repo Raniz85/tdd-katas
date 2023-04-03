@@ -39,4 +39,50 @@
         @apply rounded-xl;
         @apply bg-base2;
     }
+
+    div.flight-console {
+        @apply rounded-3xl;
+        padding: 1em 2ch;
+        line-height: 1.2em;
+        height: 14em;
+        width: 44ch;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    div.flight-console line {
+        white-space: pre;
+        display: block;
+    }
+
+    .animation-blink {
+        animation: blink-animation 2s steps(5, start) infinite;
+        -webkit-animation: blink-animation 2s steps(5, start) infinite;
+    }
+    @keyframes blink-animation {
+        to {
+            visibility: hidden;
+        }
+    }
+    @-webkit-keyframes blink-animation {
+        to {
+            visibility: hidden;
+        }
+    }
+
+    div.quote {
+        @apply ml-3;
+        @apply bg-base2;
+        @apply p-2;
+        @apply rounded-md;
+    }
+
+    span.inline-code {
+        @apply font-mono;
+        @apply bg-base03;
+        @apply text-base3;
+        @apply rounded-md;
+        @apply px-1;
+        white-space: pre-wrap;
+    }
 }
