@@ -1,0 +1,127 @@
+passphrase="BWTQEEDXSCDKZTFN"
+<div class="assignment-section">
+    <p>
+        Nice one, the autopilot seems satisfied with the route. Finally, you can get back to the hot-tub again!
+    </p>
+    <p>
+        ...
+    </p>
+    <p>
+        Yikes! The memory corruption seems to have selected a default preset made for polar bears or penguins. Whoever
+        decided that the fallback temperature should be 18 degrees?!
+    </p>
+    <p>
+        You quickly locate the control panel and set the temperature to a cozy 35 degrees - and save the preset! You
+        put on a robe and patiently wait for the water to get warmer.
+    </p>
+    <p>
+        As you wait for the water to warm you talk a walk around the ship. Maybe there's something else to do here
+        than just lounge in the hot-tub and wait for the ship to do its route.
+    </p>
+    <p>
+        As you walk around you eventually get to the dining room. In the dining room is a table with room for 8 and a
+        <em>Galley Bot 360 Mk. 8 Deluxe</em> which can probably dish out a wide variety of fancy food that you've never
+        even dreamed of.
+    </p>
+    <p>
+        Browsing through the menu you eventually decide on <em>"Confit Porg"</em> for your dinner, but apparently the
+        manufacturer decided that you weren't allowed the fancier parts of the menu on your test flight.
+    </p>
+    <div class="flight-console bg-blue text-base3 mx-auto">
+        <line>              Item locked</line>
+        <line>          Enter override code</line>
+        <line>Seed:</line>
+        <line>  AACFDEABDDFCBANOPLPLRFWMOTLZILURSKCN</line>
+        <line>  VMUBTUFCMVTHLYPGIUMYLZCCRUYHUATPRNCO</line>
+        <line>  SRBZUDRPFFEKIGEPABNSAHSEHPJFCTFXIRBD</line>
+        <line>  NMMRNGLVFJZLFZGOPMHDWIVRBBNRFIHSTJVH</line>
+        <line>  AMHRNRSQCBHAOYFZTBAXMVIQWZENAVFQNDSS</line>
+        <line>  DFLMCRSLNGUOJOEKQXEFNNYGIJPRMAUNAMSQ</line>
+        <line>Input:<span class="animation-blink">█</span></line>
+    </div>
+    <p>
+        Hah, you've got this one. You enter the seed into your code generator and input the code into the machine - and
+        the machine responds by telling you that the code you entered is invalid.
+    </p>
+    <p>
+        You try a few more times just to be sure before heading back to the cockpit to read through the manual - maybe
+        you missed some edge-case that didn't show up when you rebooted the autopilot.
+    </p>
+    <p>
+        You read through the description of the Marvin TPA reduction algorithm and double-check your implementation
+        but everything seems correct. Looking through the bookshelf after other manuals you find the manual for the
+        galley bot and quickly locate the page detailing the unlock codes.
+    </p>
+    <div class="quote">
+       <p>
+           <em>Galley Bot 360 Mk. 8 Deluxe</em> uses the updated Marvin TPA reduction algorithm V1.2 for all its
+           unlock codes.
+       </p>
+    </div>
+    <p>
+        Hmm, v1.2, wonder what's different. Let's check on the PDA
+    </p>
+    <div class="quote">
+        <h2>V1.2</h2>
+        <p>
+            In response to complaints that the original Marvin TPA reduction algorithm did the same permutations on each
+            group, the updated version 1.2 features configurable permutations for each group.
+        </p>
+        <p>
+            This is configured with a preamble (which is removed from the seed prior to reduction) consisting of one
+            letter for each group in the seed. Each permutation can consist of the following actions:
+        </p>
+        <ol class="ml-5 list-numeric">
+            <li>Reverse the order of the characters in the group</li>
+            <li>
+                Replace every consonant with the character that comes 13 positions after alphabetically, wrapping around
+                to the start of the alphabet if necessary.
+            </li>
+            <li>
+                Iteratively from the second character, swap every vowel with the character in the position before it.
+            </li>
+            <li>
+                For each character pair (1 and 2, 3 and 4, etc.) add together their positions in the alphabet and
+                replace both with the character corresponding to the new position, wrapping around if necessary.
+            </li>
+            <li>
+                Starting with the second character, replace every second character with the character that comes 13
+                positions before alphabetically, wrapping around to the back of the alphabet if necessary.
+            </li>
+            <li>
+                Swap the 8 first characters with the 8 last characters of the group.
+            </li>
+        </ol>
+        <p>
+            Given the above list of actions, the letters in the preamble tell you which actions to perform in which
+            sequence:
+        </p>
+        <ul class="ml-5 list-disc">
+            <li><em>A</em>: 1, 2, 3</li>
+            <li><em>B</em>: 4, 5, 6</li>
+            <li><em>C</em>: 2, 4, 3</li>
+            <li><em>D</em>: 6, 1, 4</li>
+            <li><em>E</em>: 3, 5, 1</li>
+            <li><em>F</em>: 5, 3, 2</li>
+        </ul>
+        <p>
+            Combination of the groups into the final code works exactly the same as in the original Marvin TPA reduction
+            algorithm.
+        </p>
+        <p>
+            Using the alphabet as example seed, the algorithm will apply the actions <em>1, 2, 3</em> to group 1 and
+            the actions <em>4, 5, 6</em> to group 2, resulting in the code <span class="inline-code"></span>. To make
+            V1.2 output the same code as V1.0, prepend <em>A</em> times the number of groups in the seed.
+        </p>
+    </div>
+    <p>
+        Calculate the route and use the ordered list of systems as the seed for the Marvin TPA reduction algorithm.
+        Don't forget that the trip starts and ends at Sol (which has coordinates <span class="inline-code">0, 0, 0</span>).
+    </p>
+    <form id="part3_answer"
+          action='javascript:attemptAnswer("part4.html.json", "part4_answer", "parts")'>
+        <label for="part3_length_input">Code</label>
+        <input id="part3_length_input" type="text" size="32"/>
+        <button>Submit</button>
+    </form>
+</div>

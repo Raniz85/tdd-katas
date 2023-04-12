@@ -40,8 +40,26 @@
         @apply bg-base2;
     }
 
+    .tooltip {
+        @apply invisible absolute;
+        @apply bg-base3;
+        @apply p-2;
+        @apply border;
+        @apply rounded-md;
+    }
+
+    .has-tooltip {
+        text-decoration: underline;
+        text-decoration-style: dashed;
+    }
+
+    .has-tooltip:hover .tooltip {
+        @apply visible z-50
+    }
+
     div.flight-console {
         @apply rounded-3xl;
+        @apply font-mono;
         padding: 1em 2ch;
         line-height: 1.2em;
         height: 14em;

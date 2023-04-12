@@ -38,6 +38,7 @@ module.exports = {
         'h1': { fontSize: theme('fontSize.2xl'), marginTop: "1rem", },
         'h2': { fontSize: theme('fontSize.xl'), marginTop: "1rem", },
         'h3': { fontSize: theme('fontSize.lg'), marginTop: "1rem", },
+        'a': { textDecoration: "underline" },
       })
     })
   ]

@@ -73,7 +73,7 @@
             to sound more than a few beeps if the entire cockpit is lit up in red you walk over to the closest display
             to see what's wrong.
         </p>
-        <div class="flight-console text-base3 font-mono bg-red mx-auto">
+        <div class="flight-console text-base3 bg-red mx-auto">
             <line>                 <span class="underline">ALERT!</span></line>
             <line>           FATAL SYSTEM CRASH</line>
             <line> ENTER EMERGENCY UNLOCK CODE TO REBOOT</line>
@@ -102,7 +102,12 @@
         </p>
         <p>
             Oups. It seems the "coaster" was the code-generator, and it doesn't seem to have appreciated the
-            lunar ale you spilled on it.
+            <span class="has-tooltip">
+                Trappist ale
+                <span class="tooltip">
+                    Obviously, <em>Trappist ale</em> refers to the ale brewed by the monks of Trappist-1d in the Trappist-1
+                    system in the Aquarius constellation</span>
+            </span>you spilled on it.
         </p>
         <p>
             Back to the cockpit it is. You take the manual from the bookshelf and quickly find the page that documents
@@ -119,26 +124,30 @@
                 A brief explanation follows:
             </p>
             <h3>Marvin TPA Algorithm</h3>
-                <ol class="ml-5 mt-2 list-decimal">
-                    <li>Divide the seed up into groups of 16 characters. If the last group is not of 16 characters,
-                        append the alphabet until it is.</li>
-                    <li>
-                        For each group:
-                        <ol class="ml-5 list-char">
-                            <li>Reverse the order of characters in the group</li>
-                            <li>Replace every consonant with the character that comes 13 positions after alphabetically, wrapping around to the start of the alphabet.</li>
-                            <li>Iteratively from the second character, swap every vowel with the character in the position before it.</li>
-                            <li>Replace each character with its numerical position in the alphabet.</li>
-                        </ol>
-                    </li>
-                    <li>To combine the groups into the final code:
-                        <ol class="ml-5 list-char">
-                            <li>Position by position, add all numbers at that position from all the groups together.</li>
-                            <li>Position by position, mod 26 all positions.</li>
-                            <li>Replace each number by the character at that 1-based position in the alphabet.</li>
-                        </ol>
-                    </li>
-                </ol>
+            <p>
+                <em>Disclaimer: The Marvin TPA Algorithm uses 1-based positioning - i.e. A has position 1.</em>
+            </p>
+            <ol class="ml-5 mt-2 list-decimal">
+                <li>
+                    Discarding all whitespace, divide the seed up into groups of 16 characters. If the last group is
+                    not of 16 characters, append the alphabet until it is.
+                </li>
+                <li>
+                    For each group:
+                    <ol class="ml-5 list-char">
+                        <li>Reverse the order of characters in the group</li>
+                        <li>Replace every consonant with the character that comes 13 positions after alphabetically, wrapping around to the start of the alphabet.</li>
+                        <li>Iteratively from the second character, swap every vowel with the character in the position before it.</li>
+                        <li>Replace each character with its numerical position in the alphabet.</li>
+                    </ol>
+                </li>
+                <li>To combine the groups into the final code:
+                    <ol class="ml-5 list-char">
+                        <li>Position by position, add all numbers at that position from all the groups together.</li>
+                        <li>Replace each number by the character at that position in the alphabet, wrapping around if necessary.</li>
+                    </ol>
+                </li>
+            </ol>
             <h3>Example</h3>
             <p class="mt-2">
                 For further explanation here is a sample for reducing the seed <span class="inline-code">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>:
@@ -172,10 +181,9 @@
                         </ul>
                     </li>
                     <li>
-                        Position-wise addition, modulus and substitution yields:
+                        Position-wise addition and substitution yields:
                         <ol class="ml-5 list-char">
                             <li><span class="inline-code">20 20 20 40 27 40 34 34 34 29 26 29 24 20 7 20</span></li>
-                            <li><span class="inline-code">20 20 20 14  1 14  8  8  8  3 26  3 24 20 7 20</span></li>
                             <li><span class="inline-code">TTTNANHHHCZCXTGT</span></li>
                         </ol>
                     </li>

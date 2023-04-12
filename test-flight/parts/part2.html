@@ -1,7 +1,72 @@
 passphrase="GBWIJFRRVXHWIXNA"
 <div class="assignment-section" id="part2">
     <p>
-        Correct!
+        <em>Beep, beep, beep, ..., BEEP.</em> It seems the system is restarting.
     </p>
+    <p>
+        When the system has successfully booted up again you're greeted with the regular status screen. You notice
+        two notifications and quickly read them through:
+    </p>
+    <div class="flight-console bg-blue text-base3 mx-auto">
+        <line> </line>
+        <line>- System Successfully Rebooted!</line>
+        <line> </line>
+        <line>- Memory Corruption Error.</line>
+        <line>  The following data failed to restore:</line>
+        <line>   - Time</line>
+        <line>   - Flight route</line>
+        <line>   - TubMaster 58K user presets</line>
+    </div>
+    <p>
+        Meh, it seems you'll have to fix a few more things manually. You quickly input the current stardate (78277.66)
+        which is conveniently available on your PDA and then think about the flight route.
+    </p>
+    <p>
+        You know that the route consisted of point to point legs from star system to star system, with the next stop
+        being whichever unvisited star system is the closest and returning back to Sol once all systems has been visited.
+    </p>
+    <p>
+        You download <a href="map.txt">the map of star systems</a> from the autopilot and take a look. The map seems to
+        be a list of all star systems to visit and their relative position to Sol in normalized movemental galactic
+        coordinates. Neat, those work just like a Euclidean 4-space so this shouldn't be hard to calculate.
+    </p>
+    <p>
+        Just to be sure you're on top of your Euclidian n-space mathematics you bring up the section about
+        Euclidean distance on your PDA:
+    </p>
+    <div class="quote">
+        <h1>Euclidean Distance</h1>
+        <p>
+            Distance in a Euclidean n-space is calculated by recursively applying the Pythagorean theorem to the
+            coordinate pairs.
+        </p>
+        <p>
+            Starting in two dimensions, the distance between the coordinate pairs <em>p</em> and <em>q</em> is:
+            <img src="euclid-distance-n2.svg" />
+        </p>
+        <p>
+            Adding another dimension means using the distance in the first two dimensions as one of the sides in the
+            Pythagorean theorem and the distance in the third dimension as the second side:
+            <img src="euclid-distance-n3.svg" />
+        </p>
+        <p>
+            Which simplifies to:
+            <img src="euclid-distance-n3-simplified.svg" />
+        </p>
+        <p>
+            After this, it is rather easy to see that the general formula for distance in Euclid n-space is:
+            <img src="euclid-distance-n.svg" />
+        </p>
+    </div>
+    <p>
+        Calculate the route and use the ordered list of systems as the seed for the Marvin TPA reduction algorithm.
+        Don't forget that the trip starts and ends at Sol (which has coordinates <span class="inline-code">0, 0, 0, 0</span>).
+    </p>
+    <form id="part2_answer"
+          action='javascript:attemptAnswer("part3.html.json", "part2_answer", "parts")'>
+        <label for="part2_length_input">Code</label>
+        <input id="part2_length_input" type="text" size="32"/>
+        <button>Submit</button>
+    </form>
 </div>
 
