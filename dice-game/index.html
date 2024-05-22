@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- CC-BY-3.0 https://game-icons.net/1x1/delapouite/bowling-strike.html -->
+    <link rel="icon" type="image/svg+xml" href="../src/favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dice Game</title>
+</head>
+<body>
+<div class="fixed inset-0 bg-base03 bg-opacity-50 overflow-y-auto h-full w-full" id="greeting">
+    <div class="max-w-4xl">
+        <div class="max-w-2xl relative bg-base3 text-base00 bg-opacity-100 mt-20 p-5 mx-auto border shadow-lg rounded-md" >
+            <div class="mt-3">
+                <h1 class="text-xl font-medium mb-5">The Dice Game Kata</h1>
+                <p>
+                    Hello and welcome to this programming kata.
+                </p>
+                <p>
+                    This kata consists of several parts where you should solve one part before you look at the next.
+                </p>
+                <p>
+                    While you <i>could</i> speed through this kata by just implementing the requirements as quickly as possible,
+                    the intention of this kata is to practice Test Driven Development and as such you're recommended
+                    to think about this as production code and write proper tests for your implementation.
+                </p>
+                <p>
+                    Where appropriate, an example will be shown to better explain the problem.
+                    These examples are perfect for an initial test case.
+                    I do recommend that you write more tests than just based on the example though,
+                    the aim, after all, is to drive development by passing tests.
+                </p>
+                <p>
+                    Good luck!<br/>
+                    /Raniz
+                </p>
+                <div class="text-center">
+                    <button class="bg-green px-4 text-base3 rounded-full" onclick="document.getElementById('greeting').style.display = 'none'">Let's Go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="assignment" id="parts">
+    <div class="assignment-section" id="intro">
+        <p>
+            Your task in this kata is to implement a dice game.
+            The game will start out simple but will progressively become more complex.
+            It will be an interactive application,
+            but you are free to choose whichever language and interface type you want.
+        </p>
+    </div>
+    <div class="assignment-section" id="step1">
+        <details class="cursor-pointer">
+            <summary>Step 1</summary>
+            <div>
+                <h2>Implement a simple dice game</h2>
+                <p>
+                    Implement a dice game with three dice.
+                    The game consists of 10 throws,
+                    a player's score is the sum of all dice values thrown.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step2">
+        <details class="cursor-pointer">
+            <summary>Step 2</summary>
+            <div>
+                <h2>Saving dice</h2>
+                <p>
+                    The game now consist of 10 rounds.
+                    Each round consists of three throws where the player may choose to save one or more dice and only rethrow the other dice.
+                    The score for each round is the sum of the final dice values after three throws.
+                    The total score is the sum of all round scores.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step3">
+        <details class="cursor-pointer">
+            <summary>Step 3</summary>
+            <div>
+                <h2>Log</h2>
+                <p>
+                    After every game, print a list of all rounds and the final dice values.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step4">
+        <details class="cursor-pointer">
+            <summary>Step 4</summary>
+            <div>
+                <h2>5 dice</h2>
+                <p>
+                    The game now uses five dice instead of three.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step5">
+        <details class="cursor-pointer">
+            <summary>Step 5</summary>
+            <div>
+                <h2>Targets</h2>
+                <p>
+                    Instead of just counting values we will now try to match specific targets.
+                    In each game, the player aims to complete a list of targets.
+                    Each target can only be completed once and if the dice cannot be combined in a way that satisfies
+                    a target, the player has to choose a target to cross out and gets zero points in that round.
+                </p>
+                <p>
+                    The different targets are:
+                    <ul class="ml-2">
+                        <li><em>One Pair:</em> Two dice showing the same number. Score: Sum of those two dice.</li>
+                        <li><em>Two Pairs:</em> Two different pairs of dice. Score: Sum of dice in those two pairs.</li>
+                        <li><em>Three of a Kind:</em> Three dice showing the same number. Score: Sum of those three dice.</li>
+                        <li><em>Four of a Kind:</em> Four dice with the same number. Score: Sum of those four dice.</li>
+                        <li><em>Small Straight:</em> The combination 1-2-3-4-5. Score: 15 points (sum of all the dice).</li>
+                        <li><em>Large Straight:</em> The combination 2-3-4-5-6. Score: 20 points (sum of all the dice).</li>
+                        <li><em>Full House:</em> Any set of three combined with a different pair. Score: Sum of all the dice.</li>
+                    </ul>
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step6">
+        <details class="cursor-pointer">
+            <summary>Step 6</summary>
+            <div>
+                <h2>Yatzy</h2>
+                <p>
+                    Implement Yatzy.
+                </p>
+                <p>
+                    In addition to the previous targets the following targets are now available:
+                    <ul class="ml-2">
+                        <li><em>Ones:</em>The sum of all dice showing the number 1.</li>
+                        <li><em>Twos:</em>The sum of all dice showing the number 2.</li>
+                        <li><em>Threes:</em>The sum of all dice showing the number 3.</li>
+                        <li><em>Fours:</em>The sum of all dice showing the number 4.</li>
+                        <li><em>Fives:</em>The sum of all dice showing the number 5.</li>
+                        <li><em>Sixes:</em>The sum of all dice showing the number 6.</li>
+                        <li><em>Chance:</em> Any combination of dice. Score: Sum of all the dice.</li>
+                        <li><em>Yatzy:</em> All five dice with the same number. Score: 50 points. </li>
+                    </ul>
+                    If the player's total score for the value targets (ones through sixes) is greater than 63 the player
+                    gets a bonus score of 50.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step7">
+        <details class="cursor-pointer">
+            <summary>Step 7</summary>
+            <div>
+                <h2>Scorecard</h2>
+                <p>
+                    Instead of the log, print a Yatzy scorecard with dice values and score.
+                    <pre>
+====================================
+| Ones            | 1 3 5 1 1 |  3 |
+| Twos            | 2 3 2 1 1 |  4 |
+| Threes          | 3 3 3 3 4 | 12 |
+| Fours           | 4 4 6 4 3 | 12 |
+| Fives           | 6 5 6 5 5 | 15 |
+| Sixes           | 6 3 2 6 6 | 18 |
+| Total           |             64 |
+| Bonus           |             50 |
+====================================
+| A Pair          | 1 4 5 5 1 | 10 |
+| Two Pairs       | 2 6 6 1 2 | 16 |
+| Three of a kind | 4 5 4 4 1 | 12 |
+| Four of a kind  | 1 1 1 6 1 |  4 |
+| Small straight  | 1 5 3 4 2 | 15 |
+| Large straight  | 6 2 3 4 5 | 20 |
+| Full house      | 1 1 5 5 3 |  - |
+| Chance          | 2 3 6 5 5 | 21 |
+| Yatzy           | 3 3 5 3 3 |  - |
+====================================
+| Total                       |  - |
+                    </pre>
+                </p>
+                <p>
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step8">
+        <details class="cursor-pointer">
+            <summary>Step 8</summary>
+            <div>
+                <h2>Mega Yatzy</h2>
+                <p>
+                    The player can now choose if they want to play regular Yatzy or Mega Yatzy.
+                </p>
+                <p>
+                    Mega yatzy is played with 6 dice and 4 throws.
+                    In addition to the targets for regular yatzy,
+                    the following new targets become available:
+                <ul class="ml-2">
+                    <li><em>Two Three of a kinds:</em> Two different three of a kinds of dice. Score: Sum of all dice.</li>
+                    <li><em>Poker:</em> The combination 1-2-3-4-5-6. Score: 21 points (sum of all the dice).</li>
+                    <li><em>Fuller house:</em>Any pair and a four of a kind. Score: sum of all dice.</li>
+                    <li><em>Mega Yatzy:</em> All six dice with the same number. Score: 100 points. </li>
+                </ul>
+                Getting a bonus now requires the sum of all value targets to be greater than 84.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step9">
+        <details class="cursor-pointer">
+            <summary>Step 9</summary>
+            <div>
+                <h2>Multiplayer</h2>
+                <p>
+                    Add support for multiple players.
+                </p>
+            </div>
+        </details>
+    </div>
+</div>
+<script type="module">
+  import {attemptAnswer} from "../src/main";
+  window.attemptAnswer = attemptAnswer;
+</script>
+</body>
+</html>
