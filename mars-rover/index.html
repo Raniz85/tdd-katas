@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="../src/favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mars Rover</title>
+</head>
+<body>
+<div class="fixed inset-0 bg-base03 bg-opacity-50 overflow-y-auto h-full w-full" id="greeting">
+    <div class="max-w-4xl">
+        <div class="max-w-2xl relative bg-base3 text-base00 bg-opacity-100 mt-20 p-5 mx-auto border shadow-lg rounded-md" >
+            <div class="mt-3">
+                <h1 class="text-xl font-medium mb-5">The Mars Rover Kata</h1>
+                <p>
+                    Hello and welcome to this programming kata.
+                </p>
+                <p>
+                    This kata consists of several parts where you should solve one part before you look at the next.
+                </p>
+                <p>
+                    While you <i>could</i> speed through this kata by just implementing the requirements as quickly as possible,
+                    the intention of this kata is to practice Test Driven Development and as such you're recommended
+                    to think about this as production code and write proper tests for your implementation.
+                </p>
+                <p>
+                    Where appropriate, an example will be shown to better explain the problem.
+                    These examples are perfect for an initial test case.
+                    I do recommend that you write more tests than just based on the example though,
+                    the aim, after all, is to drive development by passing tests.
+                </p>
+                <p>
+                    Good luck!<br/>
+                    /Raniz
+                </p>
+                <div class="text-center">
+                    <button class="bg-green px-4 text-base3 rounded-full" onclick="document.getElementById('greeting').style.display = 'none'">Let's Go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="assignment" id="parts">
+    <div class="assignment-section" id="intro">
+        <p>
+            This kata is a variant of the <i>Mars Rover</i> kata that can be found in various places around the world.
+        </p>
+        <p>
+            Your task in this kata is to implement the navigation system for a very simple rover that can land on Mars.
+        </p>
+    </div>
+    <div class="assignment-section" id="step1">
+        <details class="cursor-pointer">
+            <summary>Step 1</summary>
+            <div>
+                <h2>Simple rover movement</h2>
+                <p>
+                    Implement a simple rover that can move forwards and backwards on a flat plane.
+                    The rover has a position (x, y) and can receive commands 'F' (forward) and 'B' (backward).
+                    The rover starts facing north.
+                </p>
+                <p>
+                    Example: Starting at (0, 0), the command "FF" moves the rover to (0, 2).
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step2">
+        <details class="cursor-pointer">
+            <summary>Step 2</summary>
+            <div>
+                <h2>Rover rotation</h2>
+                <p>
+                    The rover can now rotate left and right using commands 'L' (left) and 'R' (right).
+                    The rover can face one of four directions: North, East, South, or West.
+                    Rotation changes the direction but not the position.
+                </p>
+                <p>
+                    Example: Starting at (0, 0) facing North, the command "RFR" turns right (facing East), moves forward to (1, 0), then turns right again (facing South).
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step3">
+        <details class="cursor-pointer">
+            <summary>Step 3</summary>
+            <div>
+                <h2>World wrapping</h2>
+                <p>
+                    The world now wraps around at the edges. When the rover moves beyond the boundaries of the world,
+                    it appears on the opposite side.
+                    Assume the world grid is 10x10 units
+                </p>
+                <p>
+                    Example: Starting at (9, 5) facing East, the command "F" moves the rover to (0, 5).
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step4">
+        <details class="cursor-pointer">
+            <summary>Step 4</summary>
+            <div>
+                <h2>Spherical world</h2>
+                <p>
+                    The world is now a sphere. East-West wrapping works as before, but North-South movement
+                    has the rover "come down on the other side" - e.g. when crossing the north pole, the rover
+                    continues in the same direction but appears on the opposite longitude facing south.
+                </p>
+                <p>
+                    Example: Starting at (5, 9) facing North, the command "F" moves the rover to (0, 9) but now facing South.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step5">
+        <details class="cursor-pointer">
+            <summary>Step 5</summary>
+            <div>
+                <h2>Repeated commands</h2>
+                <p>
+                    Instructions can now have numbers in front of them, meaning they should be repeated that many times.
+                    For example, "3F" means "FFF" (move forward three times).
+                    Numbers can be applied to any command: F, B, L, or R.
+                </p>
+                <p>
+                    Example: Starting at (0, 0) facing North, the command "3F2R" moves forward three times to (0, 3), then rotates right twice to face South.
+                </p>
+            </div>
+        </details>
+    </div>
+</div>
+<script type="module">
+    import {attemptAnswer} from "../src/main";
+    window.attemptAnswer = attemptAnswer;
+</script>
+</body>
+</html>

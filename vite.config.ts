@@ -13,6 +13,7 @@ export default defineConfig({
         ceoBowling: resolve(__dirname, 'ceo-bowling/index.html'),
         testFlight: resolve(__dirname, 'test-flight/index.html'),
         diceGame: resolve(__dirname, 'dice-game/index.html'),
+        marsRover: resolve(__dirname, 'mars-rover/index.html'),
       },
     },
   },
