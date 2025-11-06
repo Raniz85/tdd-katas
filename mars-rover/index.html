@@ -60,7 +60,7 @@
                     The rover starts at (0, 0) facing north.
                 </p>
                 <p>
-                    Example: Starting at (0, 0), the command "FF" moves the rover to (0, 2).
+                    Example: Starting at (0, 0), the command <i>FF</i> moves the rover to (0, 2).
                 </p>
             </div>
         </details>
@@ -76,7 +76,7 @@
                     Rotation changes the direction but not the position.
                 </p>
                 <p>
-                    Example: Starting at (0, 0) facing North, the command "RFR" turns right (facing east), moves forward to (1, 0), then turns right again (facing south).
+                    Example: Starting at (0, 0) facing North, the command <i>RFR</i> turns right (facing east), moves forward to (1, 0), then turns right again (facing south).
                 </p>
             </div>
         </details>
@@ -114,11 +114,7 @@
                 <h2>Repeated commands</h2>
                 <p>
                     Instructions can now have numbers in front of them, meaning they should be repeated that many times.
-                    For example, "3F" means "FFF" (move forward three times).
-                    Numbers can be applied to any command: F, B, L, or R.
-                </p>
-                <p>
-                    Example: Starting at (0, 0) facing North, the command "3F2R" moves forward three times to (0, 3), then rotates right twice to face South.
+                    For example, <i>3F</i> is equivalent to <i>FFF</i>.
                 </p>
             </div>
         </details>
@@ -156,11 +152,11 @@
                 </p>
                 <p>
                     Example:
-                <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
+                    <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
 36x18
 7,16
 2FRFL3B</pre>
-                Means that the rover starts at (7, 16) facing south in a world that is 36 units wide and 18 units tall.
+                    Means that the rover starts at (7, 16) facing south in a world that is 36 units wide and 18 units tall.
                 </p>
             </div>
         </details>
