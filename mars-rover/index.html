@@ -43,7 +43,7 @@
 <div class="assignment" id="parts">
     <div class="assignment-section" id="intro">
         <p>
-            This kata is a variant of the <i>Mars Rover</i> kata that can be found in various places around the world.
+            This kata is a variant of the <i>Mars Rover</i> kata that can be found in various places around the internet.
         </p>
         <p>
             Your task in this kata is to implement the navigation system for a very simple rover that can land on Mars.
@@ -57,7 +57,7 @@
                 <p>
                     Implement a simple rover that can move forwards and backwards on a flat plane.
                     The rover has a position (x, y) and can receive commands 'F' (forward) and 'B' (backward).
-                    The rover starts facing north.
+                    The rover starts at (0, 0) facing north.
                 </p>
                 <p>
                     Example: Starting at (0, 0), the command "FF" moves the rover to (0, 2).
@@ -76,7 +76,7 @@
                     Rotation changes the direction but not the position.
                 </p>
                 <p>
-                    Example: Starting at (0, 0) facing North, the command "RFR" turns right (facing East), moves forward to (1, 0), then turns right again (facing South).
+                    Example: Starting at (0, 0) facing North, the command "RFR" turns right (facing east), moves forward to (1, 0), then turns right again (facing south).
                 </p>
             </div>
         </details>
@@ -91,9 +91,6 @@
                     it appears on the opposite side.
                     Assume the world grid is 10x10 units
                 </p>
-                <p>
-                    Example: Starting at (9, 5) facing East, the command "F" moves the rover to (0, 5).
-                </p>
             </div>
         </details>
     </div>
@@ -106,9 +103,6 @@
                     The world is now a sphere. East-West wrapping works as before, but North-South movement
                     has the rover "come down on the other side" - e.g. when crossing the north pole, the rover
                     continues in the same direction but appears on the opposite longitude facing south.
-                </p>
-                <p>
-                    Example: Starting at (5, 9) facing North, the command "F" moves the rover to (0, 9) but now facing South.
                 </p>
             </div>
         </details>
@@ -125,6 +119,70 @@
                 </p>
                 <p>
                     Example: Starting at (0, 0) facing North, the command "3F2R" moves forward three times to (0, 3), then rotates right twice to face South.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step6">
+        <details class="cursor-pointer">
+            <summary>Step 6</summary>
+            <div>
+                <h2>Starting position</h2>
+                <p>
+                    Instructions now consist of two lines.
+                    The first line specifies the starting position of the rover.
+                    The second line specifies the instructions to follow.
+                    The format of the position line is <i>&lt;x&gt;,&lt;y&gt;&lt;direction&gt;</i> and the format of the instructions line is a series of commands as before.
+                </p>
+                <p>
+                    Example:
+                    <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
+5,7N
+2FRFL3B</pre>
+                    Means that the rover starts at (5, 7) facing North.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step7">
+        <details class="cursor-pointer">
+            <summary>Step 7</summary>
+            <div>
+                <h2>Configurable world size</h2>
+                <p>
+                    Instructions now consist of three lines.
+                    The first line specifies the size of the world in the format &lt;width&gt;x&lt;height&gt;
+                    The second and third lines specify the starting position of the rover and the instructions, just like before.
+                </p>
+                <p>
+                    Example:
+                <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
+36x18
+7,16
+2FRFL3B</pre>
+                Means that the rover starts at (7, 16) facing south in a world that is 36 units wide and 18 units tall.
+                </p>
+            </div>
+        </details>
+    </div>
+    <div class="assignment-section" id="step8">
+        <details class="cursor-pointer">
+            <summary>Step 8</summary>
+            <div>
+                <h2>Obstacles</h2>
+                <p>
+                    Instructions now consist of four lines.
+                    The third line now specifies obstacles, moving the instructions to the fourth line.
+                </p>
+                <p>
+                    Obstacles are specified as a comma-separated list of coordinates.
+                    For example, "1,2,3,4,5,6" means that there are obstacles at (1, 2), (3, 4), and (5, 6).
+                </p>
+                <p>
+                    If an instruction would cause the rover to hit an obstacle, that instruction is ignored.
+                </p>
+                <p>
+                    Example: With the rover positioned at (5,5) facing north and an obstacle at (5,6), the instructions <i>FFLF</i> would place the rover at (4,6) facing west.
                 </p>
             </div>
         </details>
