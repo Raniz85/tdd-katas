@@ -56,10 +56,29 @@ passphrase="Kim Octo893"
         Taken by surprise, you quickly recover and accept.
     </p>
     <p>
-        Your task is to calculate the scores of the latest round,
+        Your task is to calculate the overall winner,
         but since no one can decide on which rules to use anymore they've decided to use all of them.
-        A bowler's final score is quite simply the sum of their scores under all the different rules you've implemented.
+        A bowler's final score is quite simply the sum of the scores for each series under all rules.
     </p>
+    <p>
+        Given the example series:
+    </p>
+    <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
+Yatas Del Lana | 3 5 | 3 5 | 7 2 | 3 0 | 10  | 4 3
+Eve Stojbs      | 3 7 | 3 3 | 9 1 | 6 4 | 2 3 | 1 0</pre>
+    <p>
+        The scores for the series under all rules would be:
+    </p>
+    <pre class="bg-base03 text-base0 p-2 rounded-xl mb-2">
+Yatas Del Lana 45 55 55 52
+Eve Stojbs     42 57 60 53</pre>
+    <p>
+        Summing up, we arrive at:
+    </p>
+    <ul class="list-disc list-inside mb-2">
+        <li>Yatas Delana: 45 + 55 + 55 + 52 = 207
+        <li>Eve Stojbs: 42 + 57 + 60 + 53 = 212
+    </ul>
     <p>
         Given the scores in all the previous series, calculate the overall winner and their final score.
     </p>
